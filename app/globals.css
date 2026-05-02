@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(236, 72, 153, 0.16), transparent 28rem),
+    radial-gradient(circle at 82% 12%, rgba(79, 70, 229, 0.18), transparent 30rem),
+    linear-gradient(135deg, #f8fafc 0%, #eef8ff 46%, #e0f2fe 100%);
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-white/70 bg-white/60 shadow-glass backdrop-blur-2xl;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent;
+  }
+
+  .btn-3d {
+    @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 px-7 py-3 font-semibold text-white shadow-glow transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-[0_24px_60px_rgba(236,72,153,0.38)] active:translate-y-0 active:scale-100;
+  }
+
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10;
+  }
+
+  .service-marquee:hover .service-track {
+    animation-play-state: paused;
+  }
+}
