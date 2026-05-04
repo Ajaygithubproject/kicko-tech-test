@@ -1,12 +1,14 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
+const isGithubPages = process.env.GITHUB_PAGES === "true";
 
-  basePath: '/kicko-tech-test',
-  assetPrefix: '/kicko-tech-test/',
+const nextConfig = {
+  output: isGithubPages ? "export" : undefined,
+  basePath: isGithubPages ? "/kicko-tech-test" : undefined,
+  assetPrefix: isGithubPages ? "/kicko-tech-test/" : undefined,
+  trailingSlash: isGithubPages,
 
   images: {
-    unoptimized: true,
+    unoptimized: isGithubPages,
     remotePatterns: [
       {
         protocol: "https",
